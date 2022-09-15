@@ -1,11 +1,15 @@
 from rest_framework import generics
 
 from .models import News, NewsType
-from .serializers import NewsSerializer, NewsTypeSerializer
+from .serializers import CreateNewsSerializer, ListNewsSerializer, NewsTypeSerializer, RetrieveNewsSerializer
 
 
 class NewsList(generics.ListCreateAPIView):
-    serializer_class = NewsSerializer
+    def get_serializer_class(self):
+        serializer_class = CreateNewsSerializer
+        if self.request.method == 'GET':
+            serializer_class = ListNewsSerializer
+        return serializer_class
 
     def get_queryset(self):
         queryset = News.objects.all()
@@ -16,7 +20,7 @@ class NewsList(generics.ListCreateAPIView):
 
 
 class NewsDetail(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = NewsSerializer
+    serializer_class = RetrieveNewsSerializer
     queryset = News.objects.all()
 
 

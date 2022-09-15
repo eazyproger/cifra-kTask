@@ -11,9 +11,9 @@ class NewsType(models.Model):
 
 class News(models.Model):
     name = models.CharField(max_length=50)
-    shortDescription = models.CharField(max_length=100)
-    fullDescription = models.TextField()
-    newsType = models.ForeignKey(NewsType, null=True, on_delete=models.SET_NULL)
+    short_description = models.CharField(max_length=100)
+    full_description = models.TextField()
+    news_type = models.ForeignKey(NewsType, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
