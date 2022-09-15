@@ -56,7 +56,7 @@
 
     Сайт с api будет доступен по указанному ip
     
-    Чтобы запустить проект через docker-compose:
+    Чтобы запустить проект через docker-compose (необходимы docker, docker-compose):
       docker-compose up --build
       
     ПРИМЕЧАНИЕ: при запуске приложения через docker-compose сохранения будет создана новая или
